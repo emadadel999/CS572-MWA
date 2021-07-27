@@ -1,0 +1,274 @@
+[
+    {
+        "name": "Roger Federer",
+        "age": 39,
+        "dateOfBirth": "8 August 1981",
+        "nationality": "Switzerland",
+        "preferredGround": "grass",
+        "trophies": [
+        {
+            "name": "Grand Slam tournaments",
+            "won": 20,
+            "lost": 11,
+            "winningRate": 0.65
+        },
+        {
+            "name": "Olympic Games",
+            "won": 0,
+            "lost": 1,
+            "winningRate": 0.00
+        },
+        {
+            "name": "Year-end championships",
+            "won": 6,
+            "lost": 4,
+            "winningRate": 0.67
+        },
+        {
+            "name": "ATP Masters 1000",
+            "won": 28,
+            "lost": 20,
+            "winningRate": 0.56
+        },
+        {
+            "name": "ATP Tour 500",
+            "won": 24,
+            "lost": 7,
+            "winningRate": 0.77
+        },
+        {
+            "name": "ATP Tour 250",
+            "won": 25,
+            "lost": 9,
+            "winningRate": 0.74
+        }]
+    }, {
+        "name": "Rafael Nadal Parera",
+        "age": 35,
+        "dateOfBirth": "3 June 1986",
+        "nationality": "Spain",
+        "preferredGround": "clay",
+        "trophies": [
+            {
+                "name": "Grand Slam tournaments",
+                "won": 20,
+                "lost": 8,
+                "winningRate": 0.71
+            },
+            {
+                "name": "Olympic Games",
+                "won": 1,
+                "lost": 0,
+                "winningRate": 1.00
+            },
+            {
+                "name": "Year-end championships",
+                "won": 0,
+                "lost": 2,
+                "winningRate": 0.00
+            },
+            {
+                "name": "ATP Masters 1000",
+                "won": 36,
+                "lost": 16,
+                "winningRate": 0.69
+            },
+            {
+                "name": "ATP Tour 500",
+                "won": 22,
+                "lost": 6,
+                "winningRate": 0.79
+            },
+            {
+                "name": "ATP Tour 250",
+                "won": 9,
+                "lost": 5,
+                "winningRate": 0.64
+            }]
+    }, {
+        "name": "Novak Đoković",
+        "age": 34,
+        "dateOfBirth": "22 May 1987",
+        "nationality": "Serbia",
+        "preferredGround": "all surfaces",
+        "trophies": [
+            {
+                "name": "Grand Slam tournaments",
+                "won": 20,
+                "lost": 10,
+                "winningRate": 0.66
+            },
+            {
+                "name": "Year-end championships",
+                "won": 5,
+                "lost": 2,
+                "winningRate": 0.71
+            },
+            {
+                "name": "ATP Masters 1000",
+                "won": 36,
+                "lost": 17,
+                "winningRate": 0.68
+            },
+            {
+                "name": "ATP Tour 500",
+                "won": 14,
+                "lost": 3,
+                "winningRate": 0.82
+            },
+            {
+                "name": "ATP Tour 250",
+                "won": 10,
+                "lost": 4,
+                "winningRate": 0.71
+            }]
+    },{
+        "name": "Daniil Sergeyevich Medvedev",
+        "age": 25,
+        "dateOfBirth": "11 February 1996",
+        "nationality": "Russia",
+        "preferredGround": "grass",
+        "trophies": [
+            {
+                "name": "Grand Slam tournaments",
+                "won": 0,
+                "lost": 2,
+                "winningRate": 0.00
+            },
+            {
+                "name": "Year-end championships",
+                "won": 1,
+                "lost": 0,
+                "winningRate": 1.00
+            },
+            {
+                "name": "ATP Masters 1000",
+                "won": 3,
+                "lost": 1,
+                "winningRate": 0.75
+            },
+            {
+                "name": "ATP Tour 500",
+                "won": 1,
+                "lost": 2,
+                "winningRate": 0.33
+            },
+            {
+                "name": "ATP Tour 250",
+                "won": 6,
+                "lost": 2,
+                "winningRate": 0.75
+            }]
+    },{
+        "name": "Stefanos Tsitsipas",
+        "age": 22,
+        "dateOfBirth": "12 August 1998",
+        "nationality": "Greece",
+        "preferredGround": "grass",
+        "trophies": [
+            {
+                "name": "Grand Slam tournaments",
+                "won": 0,
+                "lost": 1,
+                "winningRate": 0.00
+            },
+            {
+                "name": "Year-end championships",
+                "won": 1,
+                "lost": 0,
+                "winningRate": 1.00
+            },
+            {
+                "name": "ATP Masters 1000",
+                "won": 1,
+                "lost": 2,
+                "winningRate": 0.33
+            },
+            {
+                "name": "ATP Tour 500",
+                "won": 0,
+                "lost": 7,
+                "winningRate": 0.00
+            },
+            {
+                "name": "ATP Tour 250",
+                "won": 5,
+                "lost": 0,
+                "winningRate": 1.00
+            }]
+    },{
+        "name": "Alexander Zverev",
+        "age": 24,
+        "dateOfBirth": "20 April 1997",
+        "nationality": "Germany",
+        "preferredGround": "clay",
+        "trophies": [
+            {
+                "name": "Grand Slam tournaments",
+                "won": 0,
+                "lost": 1,
+                "winningRate": 0.00
+            },
+            {
+                "name": "Year-end championships",
+                "won": 1,
+                "lost": 0,
+                "winningRate": 1.00
+            },
+            {
+                "name": "ATP Masters 1000",
+                "won": 4,
+                "lost": 4,
+                "winningRate": 0.50
+            },
+            {
+                "name": "ATP Tour 500",
+                "won": 3,
+                "lost": 3,
+                "winningRate": 0.50
+            },
+            {
+                "name": "ATP Tour 250",
+                "won": 7,
+                "lost": 1,
+                "winningRate": 0.88
+            }]
+    },{
+        "name": "Dominic Thiem",
+        "age": 27,
+        "dateOfBirth": "3 September 1993",
+        "nationality": "Austria",
+        "preferredGround": "clay",
+        "trophies": [
+            {
+                "name": "Grand Slam tournaments",
+                "won": 1,
+                "lost": 3,
+                "winningRate": 0.25
+            },
+            {
+                "name": "Year-end championships",
+                "won": 0,
+                "lost": 2,
+                "winningRate": 0.00
+            },
+            {
+                "name": "ATP Masters 1000",
+                "won": 1,
+                "lost": 2,
+                "winningRate": 0.33
+            },
+            {
+                "name": "ATP Tour 500",
+                "won": 5,
+                "lost": 1,
+                "winningRate": 0.83
+            },
+            {
+                "name": "ATP Tour 250",
+                "won": 10,
+                "lost": 3,
+                "winningRate": 0.77
+            }]
+    }
+]
