@@ -2,12 +2,14 @@ const express = require("express");
 require("dotenv").config();
 require("./api/data/db");
 const router = require("./api/routes");
+const path = require("path");
 
 const app = express();
 
+app.use("/modules", express.static(path.join(__dirname, "node_modules")));
+app.use(express.static(process.env.PUBLIC_FOLDER));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.static(process.env.PUBLIC_FOLDER));
 
 app.use(function (req, res, next) {
   console.log(req.method, req.url);

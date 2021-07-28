@@ -1,15 +1,15 @@
-angular.module("meanGames", ["ngRoute"]).config(config);
+angular.module("meanTennis", ["ngRoute"]).config(config);
 
 function config($routeProvider) {
   $routeProvider
     .when("/", {
-      templateUrl: "angularjs-app/game-list/gameList.html",
-      controller: "GameListController",
+      templateUrl: "angularjs-app/player-list/playerList.html",
+      controller: "PlayerListController",
       controllerAs: "vm",
     })
-    .when("/games/:gameId", {
-      templateUrl: "angularjs-app/game-display/game.html",
-      controller: "GameController",
+    .when("/players/:playerId", {
+      templateUrl: "angularjs-app/player-display/player.html",
+      controller: "PlayerController",
       controllerAs: "vm",
     });
 }

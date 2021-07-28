@@ -1,0 +1,8 @@
+<h1>MEAN Tennis homepage.</h1>
+
+<h4>Here is a list of famous tennis players</h4>
+<ul>
+  <li ng-repeat="player in vm.players">
+    <a ng-href="/#!/players/{{player._id}}">{{player.name}}</a>
+  </li>
+</ul>
