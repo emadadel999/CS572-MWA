@@ -6,6 +6,7 @@ function PlayersFactory($http) {
     getOnePlayer,
     addPlayer,
     updateOnePlayer,
+    deletePlayer,
   };
 
   function getPlayers() {
@@ -22,6 +23,9 @@ function PlayersFactory($http) {
       .put(`/api/players/${playerId}`, player)
       .then(complete)
       .catch(fail);
+  }
+  function deletePlayer(playerId) {
+    return $http.delete(`/api/players/${playerId}`).then(complete).catch(fail);
   }
 
   function complete(res) {
