@@ -5,7 +5,7 @@ function PlayersFactory($http) {
     getPlayers,
     getOnePlayer,
     addPlayer,
-    updatePlayer,
+    updateOnePlayer,
   };
 
   function getPlayers() {
@@ -17,7 +17,7 @@ function PlayersFactory($http) {
   function addPlayer(player) {
     return $http.post(`/api/players`, player).then(complete).catch(fail);
   }
-  function updatePlayer(playerId, player) {
+  function updateOnePlayer(playerId, player) {
     return $http
       .put(`/api/players/${playerId}`, player)
       .then(complete)

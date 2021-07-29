@@ -50,7 +50,6 @@ module.exports.playersAddOne = function (req, res) {
     ...req.body,
     trophies: [req.body.trophy],
   };
-  console.log(newplayer);
   Player.create(newplayer, function (err, result) {
     const response = {
       status: 201,
@@ -68,41 +67,30 @@ module.exports.playersAddOne = function (req, res) {
 module.exports.playersFullUpdateOne = function (req, res) {
   // PUT is full update
   const { playerId } = req.params;
-
-  Player.findById(playerId).exec(function (err, player) {
-    const response = {
-      status: 204,
-      message: player,
-    };
-    if (err) {
-      response.status = 500;
-      response.message = "server error finding player";
-    } else if (!player) {
-      response.status = 404;
-      response.message = "player not found";
-    } else if (response.status !== 204) {
-      res.status(response.status).json(response.message);
-    } else {
-      //update everything in the player doc
-      player.name = req.body.name;
-      player.age = req.body.age;
-      player.dateOfBirth = req.body.dateOfBirth;
-      player.preferredGround = req.body.preferredGround;
-      if (req.body.trophies) {
-        player.trophies.push(req.body.trophies);
+  const playerToUpdate = {
+    ...req.body,
+    trophies: [req.body.trophy],
+  };
+  Player.findByIdAndUpdate(
+    playerId,
+    playerToUpdate,
+    { new: true },
+    function (err, updatedPlayer) {
+      const response = {
+        status: 204,
+        message: updatedPlayer,
+      };
+      if (err) {
+        response.status = 500;
+        response.message = "server error finding player";
+      } else if (!updatedPlayer) {
+        response.status = 404;
+        response.message = "player not found";
       }
-
-      player.save(function (err, updatedplayer) {
-        if (err) {
-          response.status = 500;
-          response.message = err;
-        } else {
-          response.message = updatedplayer;
-        }
-        res.status(response.status).json(response.message);
-      });
+      console.log("got updated player", response.message);
+      res.status(response.status);
     }
-  });
+  );
 };
 
 module.exports.playersPartialUpdateOne = function (req, res) {
