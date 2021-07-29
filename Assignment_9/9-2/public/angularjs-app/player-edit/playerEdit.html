@@ -1,0 +1,145 @@
+<h1>Update {{vm.player.name}} data:</h1>
+<div style="padding: 0px 50px 50px 50px">
+  <form name="vm.playerForm" ng-submit="vm.editPlayer()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        name="name"
+        class="form-control"
+        id="name"
+        aria-describedby="playerName"
+        placeholder="Enter Name"
+        ng-model="vm.updatedPlayer.name"
+        ng-value="vm.player.name"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input
+        type="number"
+        name="age"
+        class="form-control"
+        id="age"
+        aria-describedby="playerAge"
+        placeholder="Enter Age"
+        pattern="[1-9][0-9]?"
+        ng-model="vm.updatedPlayer.age"
+        ng-value="vm.player.age"
+      />
+      <span
+        class="danger"
+        style="color: red"
+        ng-show="vm.playerForm.age.$dirty && vm.playerForm.age.$invalid"
+      >
+        players' age must be a number between 1-99</span
+      >
+    </div>
+    <div class="form-group">
+      <label for="dateOfBirth">Date of birth</label>
+      <input
+        type="text"
+        name="dateOfBirth"
+        class="form-control"
+        id="dateOfBirth"
+        aria-describedby="playerDateOfBirth"
+        placeholder="Enter Date of birth"
+        ng-model="vm.updatedPlayer.dateOfBirth"
+        ng-value="vm.player.dateOfBirth"
+      />
+    </div>
+    <div class="form-group">
+      <label for="nationality">Nationality</label>
+      <input
+        type="text"
+        name="nationality"
+        class="form-control"
+        id="nationality"
+        aria-describedby="playerNationality"
+        placeholder="Enter nationality"
+        ng-model="vm.updatedPlayer.nationality"
+        ng-value="vm.player.nationality"
+      />
+    </div>
+    <div class="form-group">
+      <label for="preferredGround">Preferred Ground</label>
+      <input
+        type="text"
+        name="preferredGround"
+        class="form-control"
+        id="preferredGround"
+        aria-describedby="playerPreferredGround"
+        placeholder="Enter Preferred Ground"
+        ng-model="vm.updatedPlayer.preferredGround"
+        ng-value="vm.player.preferredGround"
+      />
+    </div>
+    <div class="form-group">
+      <label for="trophy">Trophy</label>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="trophyName">Name</span>
+        </div>
+        <input
+          id="trophy"
+          name="trophy.name"
+          type="text"
+          class="form-control"
+          placeholder="Enter name of the trohpy"
+          aria-describedby="trophyName"
+          ng-model="vm.updatedPlayer.trophy.name"
+          ng-value="vm.player.trophies[0].name"
+        />
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="trophyWon">Won</span>
+        </div>
+        <input
+          id="trophy"
+          name="trophy.won"
+          type="number"
+          class="form-control"
+          placeholder="Enter number of trohpy winning"
+          aria-describedby="trophyWon"
+          ng-model="vm.updatedPlayer.trophy.won"
+          ng-value="vm.player.trophies[0].won"
+        />
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="trophyLost">Lost</span>
+        </div>
+        <input
+          id="trophy"
+          name="trophy.lost"
+          type="number"
+          class="form-control"
+          placeholder="Enter number of trophy losing"
+          aria-describedby="trophyLost"
+          ng-model="vm.updatedPlayer.trophy.lost"
+          ng-value="vm.player.trophies[0].lost"
+        />
+      </div>
+    </div>
+
+    <button
+      ng-disabled="vm.playerForm.$invalid || vm.playerForm.$pristine"
+      type="submit"
+      class="btn btn-primary"
+      style="margin-top: 30px"
+    >
+      Update player
+    </button>
+    <button
+      type="button"
+      class="btn btn-secondary"
+      style="margin-top: 30px"
+      ng-click="vm.returnBack()"
+    >
+      Cancel
+    </button>
+  </form>
+</div>
