@@ -1,0 +1,144 @@
+<h1>this your job opening's list</h1>
+
+<ul>
+  <li ng-repeat="job in vm.jobs">
+    <div
+      style="
+        display: flex;
+        justify-content: space-between;
+        border-color: #939597;
+        border-width: thin;
+        border-style: solid;
+        margin-right: 50px;
+        padding-left: 10px;
+      "
+    >
+      <a ng-href="/#!/{{job._id}}">{{job.title}}</a>
+      <div>
+        <a class="btn btn-info" ng-href="/#!/{{job._id}}/edit">Edit</a>
+        <a class="btn btn-danger" ng-href="/#!/{{job._id}}/delete">Delete</a>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<h4>Add a new job:</h4>
+<div style="padding: 0px 50px 50px 50px">
+  <form name="vm.jobForm" ng-submit="vm.addJob()">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        ng-model="vm.newJob.title"
+        class="form-control"
+        aria-describedby="jobTitle"
+        placeholder="Enter title"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="salary">Salary</label>
+      <input
+        type="number"
+        id="salary"
+        name="salary"
+        ng-model="vm.newJob.salary"
+        class="form-control"
+        aria-describedby="jobSalary"
+        placeholder="Enter salary"
+        step="any"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="experience">Experience</label>
+      <input
+        type="text"
+        name="experience"
+        ng-model="vm.newJob.experience"
+        class="form-control"
+        id="experience"
+        aria-describedby="jobExperience"
+        placeholder="Enter experience"
+      />
+    </div>
+    <div class="form-group">
+      <label for="postDate">Post Date</label>
+      <input
+        type="date"
+        id="postDate"
+        name="postDate"
+        ng-model="vm.newJob.postDate"
+        class="form-control"
+        aria-describedby="jobPostDate"
+        placeholder="Enter Post Date"
+        ng-max="vm.todayDate"
+      />
+      <span
+        style="color: red"
+        ng-show="vm.jobForm.postDate.$dirty && vm.jobForm.postDate.$invalid"
+      >
+        Date must be before today</span
+      >
+    </div>
+    <div class="form-group">
+      <label for="skill">Skill</label>
+      <input
+        type="text"
+        id="skill"
+        name="skill"
+        ng-model="vm.newJob.skill"
+        class="form-control"
+        aria-describedby="jobSkill"
+        placeholder="Enter Skill"
+      />
+    </div>
+    <div class="form-group">
+      <label for="locationName">Location Name</label>
+      <input
+        type="text"
+        name="locationName"
+        ng-model="vm.newJob.locationName"
+        class="form-control"
+        id="locationName"
+        aria-describedby="jobLocationName"
+        placeholder="Enter Location Name"
+      />
+    </div>
+    <div class="form-group">
+      <label for="locationAddress">Location Address</label>
+      <input
+        type="text"
+        name="locationAddress"
+        ng-model="vm.newJob.locationAddress"
+        class="form-control"
+        id="locationAddress"
+        aria-describedby="jobLocationAddress"
+        placeholder="Enter name of the Location Address"
+      />
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea
+        type="text"
+        rows="3"
+        id="description"
+        name="description"
+        ng-model="vm.newJob.description"
+        class="form-control"
+        aria-describedby="jobDescription"
+        placeholder="Enter description"
+      ></textarea>
+    </div>
+    <button
+      ng-disabled="vm.jobForm.$invalid"
+      type="submit"
+      class="btn btn-primary"
+      style="margin-top: 30px"
+    >
+      Add Job
+    </button>
+  </form>
+</div>

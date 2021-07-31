@@ -1,0 +1,12 @@
+<h1>Information about : {{vm.job.title}}</h1>
+
+<p>
+  Salary: {{vm.job.salary | currency}} <br />
+  Location: {{vm.job.location.name}} <br />
+  Experience: {{vm.job.experience}} <br />
+  Post Date: {{vm.job.postDate | date : "dd-MM-yyyy"}} <br />
+  Skills: {{vm.job.skills[0]}} <br />
+  Description: {{vm.job.description}} <br />
+</p>
+
+<button class="btn btn-secondary" ng-click="vm.returnBack()">Back</button>

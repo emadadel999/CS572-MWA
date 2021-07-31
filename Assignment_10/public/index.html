@@ -1,0 +1,24 @@
+<html lang="en" ng-app="meanJobSearch">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job opening search</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/custom.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="myContainer">
+      <div ng-view></div>
+    </div>
+    <script src="/node/angular/angular.js"></script>
+    <script src="/node/angular-route/angular-route.js"></script>
+
+    <script src="angularjs-app/app_1.js"></script>
+    <script src="angularjs-app/job-list/jobListController.js"></script>
+    <script src="angularjs-app/job-display/jobController.js"></script>
+    <script src="angularjs-app/job-edit/jobEditController.js"></script>
+    <script src="angularjs-app/job-delete/jobDeleteController.js"></script>
+    <script src="angularjs-app/dataFactory/jobFactory.js"></script>
+  </body>
+</html>
