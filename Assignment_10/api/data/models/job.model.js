@@ -10,7 +10,8 @@ const jobSchema = new mongoose.Schema({
     type: String,
   },
   salary: {
-    type: Number,
+    iv: String,
+    content: String,
   },
   location: locationSchema,
   description: {

@@ -1,37 +1,48 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const { encrypt, decrypt } = require("../helpers/myEncryptor");
 
 const Job = mongoose.model("Job");
-
-// function _encryptSalary(salary, callBack) {
-//   bcrypt.genSalt(10, function (err, salt) {
-//     bcrypt.hash(salary, salt, callBack);
-//   });
-// }
 
 // do this later ////////
 // {postDate: { $gte: '1987-10-19', $lte: Date.now() }}
 
 module.exports.jobsGetAll = function (req, res) {
-  Job.find(function (err, jobs) {
-    const response = {
-      status: 200,
-      message: jobs,
-    };
-    if (err) {
-      console.log("error finding jobs", err);
-      response.status = 500;
-      response.message = err;
-    }
-    console.log("found jobs", jobs.length);
-    res.status(response.status).json(response.message);
-  });
+  const count = req.query.count ? parseInt(req.query.count) : 5;
+  const offset = req.query.offset ? parseInt(req.query.offset) : 0;
+  if (isNaN(offset) || isNaN(count)) {
+    res.status(400).json({ message: "please use numbers in the query" });
+  } else {
+    Job.find(function (err, jobs) {
+      const response = {
+        status: 200,
+        message: jobs,
+      };
+      if (err) {
+        console.log("error finding jobs", err);
+        response.status = 500;
+        response.message = err;
+      } else {
+        console.log("found jobs", jobs.length);
+        response.message.forEach((job) => {
+          if (job.salary) {
+            const decryptedSalary = decrypt(job.salary);
+            job.salary = parseFloat(decryptedSalary);
+          }
+        });
+      }
+      res.status(response.status).json(response.message);
+    })
+      .lean()
+      .limit(count)
+      .skip(offset);
+  }
 };
 
 module.exports.jobsGetOne = function (req, res) {
   const { jobId } = req.params;
 
-  Job.findById(jobId, {}, {}, function (err, job) {
+  Job.findById(jobId, {}, { lean: true }, function (err, job) {
     const response = {
       status: 200,
       message: job,
@@ -44,6 +55,11 @@ module.exports.jobsGetOne = function (req, res) {
       console.log("job not found", err);
       response.status = 404;
       response.message = err;
+    } else {
+      if (response.message.salary) {
+        const decryptedSalary = decrypt(response.message.salary);
+        response.message.salary = parseFloat(decryptedSalary);
+      }
     }
     res.status(response.status).json(response.message);
   });
@@ -52,13 +68,16 @@ module.exports.jobsGetOne = function (req, res) {
 module.exports.jobsAddOne = function (req, res) {
   const newJob = {
     title: req.body.title,
-    salary: req.body.salary, //mongoose already made sure this is double before adding it
     location: req.body.location,
     description: req.body.description,
     experience: req.body.experience,
     postDate: req.body.postDate,
     skills: [req.body.skill],
   };
+  if (req.body.salary) {
+    const encryptedSalary = encrypt(req.body.salary.toString());
+    newJob.salary = encryptedSalary;
+  }
   Job.create(newJob, function (err, createdJob) {
     const response = {
       status: 201,
@@ -84,6 +103,10 @@ module.exports.jobsUpdateOne = function (req, res) {
   };
   if (req.body.skill) {
     jobToUpdate.skills = [req.body.skill];
+  }
+  if (req.body.salary) {
+    const encryptedSalary = encrypt(req.body.salary.toString());
+    jobToUpdate.salary = encryptedSalary;
   }
   console.log(jobToUpdate);
   Job.findByIdAndUpdate(
