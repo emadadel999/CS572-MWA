@@ -16,7 +16,7 @@ function JobListController(JobFactory, $location) {
   vm.newJob = {};
   vm.addJob = function () {
     console.log(vm.newJob);
-    if (vm.newJob.locationName && vm.newJob.locationAddress) {
+    if (vm.newJob.locationName || vm.newJob.locationAddress) {
       const name = vm.newJob.locationName;
       const address = vm.newJob.locationAddress;
       vm.newJob.location = {

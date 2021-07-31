@@ -19,7 +19,7 @@ function JobEditController($routeParams, JobFactory, $location) {
   vm.updatedJob = {};
   vm.editJob = function () {
     console.log(vm.updatedJob);
-    if (vm.updatedJob.locationName && vm.updatedJob.locationAddress) {
+    if (vm.updatedJob.locationName || vm.updatedJob.locationAddress) {
       const name = vm.updatedJob.locationName;
       const address = vm.updatedJob.locationAddress;
       vm.updatedJob.location = {
@@ -34,6 +34,7 @@ function JobEditController($routeParams, JobFactory, $location) {
     JobFactory.updateJob(jobId, vm.updatedJob)
       .then(function () {
         console.log("job updated successfully");
+        $location.path("/");
       })
       .catch(function (err) {
         console.log("error updating job", err);
