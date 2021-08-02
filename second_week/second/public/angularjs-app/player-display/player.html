@@ -1,0 +1,17 @@
+<h1>{{vm.player.name}}</h1>
+
+<p>
+  Age: {{vm.player.age}} <br />
+  Date of birth: {{vm.player.dateOfBirth}} <br />
+  Nationality: {{vm.player.nationality}} <br />
+  Trophies: 
+  <ul style="padding-bottom: 20px">
+    <li ng-repeat="trophy in vm.player.trophies">
+      <p><b>{{trophy.name}}</b></p>
+      <p>Won: {{trophy.won}}</p>
+      <p>Lost: {{trophy.lost}}</p>
+    </li>
+  </ul>
+</p>
+
+<button class="btn btn-secondary" ng-click="vm.returnBack()">Back</button>

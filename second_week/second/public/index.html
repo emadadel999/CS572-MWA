@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="meanTennis">
+  <head>
+    <title>MEAN Tennis</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/custom.css" rel="stylesheet" />
+  </head>
+  <body>
+    <tennis-navigation></tennis-navigation>
+    <div class="myContainer">
+      <div ng-view></div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted text-center">
+          <a href="https://compro.miu.edu" target="_blank"
+            ><img
+              src="./img/compro-web-logo-442x112.webp"
+              height="60"
+              alt="MIU Compro"
+          /></a>
+          <br />
+          <small class="textblack-50 text-center"
+            >&copy; 2021 Maharishi International University. All Rights
+            Reserved.
+          </small>
+        </p>
+      </div>
+    </footer>
+    <script src="/modules/angular/angular.js"></script>
+    <script src="/modules/angular-route/angular-route.js"></script>
+    <script src="/modules/angular-jwt/dist/angular-jwt.js"></script>
+
+    <script src="angularjs-app/app.js"></script>
+    <script src="angularjs-app/dataFactory/playersFactory.js"></script>
+    <script src="angularjs-app/player-list/playerListController.js"></script>
+    <script src="angularjs-app/player-display/playerController.js"></script>
+    <script src="angularjs-app/player-edit/playerEditController.js"></script>
+    <script src="angularjs-app/player-delete/playerDeleteController.js"></script>
+    <script src="angularjs-app/dataFactory/usersFactory.js"></script>
+
+    <script src="angularjs-app/authentication/authFactory.js"></script>
+    <script src="angularjs-app/authentication/authInterceptor.js"></script>
+    <script src="angularjs-app/directives/navigation/navigationDirective.js"></script>
+    <script src="angularjs-app/login/loginController.js"></script>
+    <script src="angularjs-app/register/registerController.js"></script>
+  </body>
+</html>

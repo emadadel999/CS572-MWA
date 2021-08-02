@@ -1,0 +1,71 @@
+<nav
+  ng-controller="LoginController as vm"
+  class="navbar navbar-expand-lg navbar-fixed-top bg-dark"
+  ng-init="vm.init()"
+>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#!/">MeanTennis</a>
+    </div>
+    <div
+      id="navbar"
+      class="collapse navbar-collapse"
+      style="justify-content: inherit"
+    >
+      <ul class="nav navbar-nav">
+        <li class="myNavBtn">
+          <a href="#!/">Home</a>
+        </li>
+        <li class="myNavBtn"><a href="#!/players">Players</a></li>
+        <li class="myNavBtn" ng-if="!vm.isLoggedIn()">
+          <a href="#!/register">Register</a>
+        </li>
+        <li class="myNavBtn" ng-if="vm.isLoggedIn()">
+          <a href="#!/profile">Profile</a>
+        </li>
+      </ul>
+      <div>
+        <form
+          ng-if="!vm.isLoggedIn()"
+          class="myLoginContainer"
+          role="login"
+          ng-submit="vm.login()"
+        >
+          <div class="form-group loginInputContainer">
+            <input
+              type="text"
+              class="form-control input-sm"
+              placeholder="Username"
+              ng-model="vm.user.username"
+              autocapitalize="none"
+            />
+          </div>
+          <div class="form-group loginInputContainer">
+            <input
+              type="password"
+              class="form-control input-sm"
+              placeholder="Password"
+              ng-model="vm.user.password"
+              autocapitalize="none"
+            />
+          </div>
+          <button type="submit" class="btn btn-sm btn-success">Login</button>
+        </form>
+      </div>
+      <ul
+        ng-if="vm.isLoggedIn()"
+        class="new navbar-nav navbar-right"
+        style="display: flex; align-items: baseline"
+      >
+        <li style="margin-right: 15px">
+          <p style="margin: 0">Welcome <b>{{vm.loggedInUser}}</b></p>
+        </li>
+        <li style="margin-right: 15px">
+          <button class="navbar-btn btn-sm btn-info" ng-click="vm.logout()">
+            Logout
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

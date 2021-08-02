@@ -1,0 +1,157 @@
+<h1>MEAN Tennis homepage.</h1>
+
+<h4>Here is a list of famous tennis players</h4>
+<ul>
+  <li ng-repeat="player in vm.players">
+    <div
+      style="
+        display: flex;
+        justify-content: space-between;
+        border-color: #939597;
+        border-width: thin;
+        border-style: solid;
+        margin-right: 50px;
+        padding-left: 10px;
+      "
+    >
+      <a ng-href="/#!/players/{{player._id}}">{{player.name}}</a>
+      <div>
+        <a class="btn btn-info" ng-href="/#!/players/{{player._id}}/edit"
+          >Edit</a
+        >
+        <a class="btn btn-danger" ng-href="/#!/players/{{player._id}}/delete"
+          >Delete</a
+        >
+      </div>
+    </div>
+  </li>
+</ul>
+<h4>Add a new player:</h4>
+<div style="padding: 0px 50px 50px 50px">
+  <form name="vm.playerForm" ng-submit="vm.addPlayer()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        name="name"
+        ng-model="vm.newPlayer.name"
+        class="form-control"
+        id="name"
+        aria-describedby="playerName"
+        placeholder="Enter Name"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input
+        type="number"
+        name="age"
+        ng-model="vm.newPlayer.age"
+        class="form-control"
+        id="age"
+        aria-describedby="playerAge"
+        placeholder="Enter Age"
+        pattern="[1-9][0-9]?"
+      />
+      <span
+        class="danger"
+        style="color: red"
+        ng-show="vm.playerForm.age.$dirty && vm.playerForm.age.$invalid"
+      >
+        players' age must be a number between 1-99</span
+      >
+    </div>
+    <div class="form-group">
+      <label for="dateOfBirth">Date of birth</label>
+      <input
+        type="text"
+        name="dateOfBirth"
+        ng-model="vm.newPlayer.dateOfBirth"
+        class="form-control"
+        id="dateOfBirth"
+        aria-describedby="playerDateOfBirth"
+        placeholder="Enter Date of birth"
+      />
+    </div>
+    <div class="form-group">
+      <label for="nationality">Nationality</label>
+      <input
+        type="text"
+        name="nationality"
+        ng-model="vm.newPlayer.nationality"
+        class="form-control"
+        id="nationality"
+        aria-describedby="playerNationality"
+        placeholder="Enter nationality"
+      />
+    </div>
+    <div class="form-group">
+      <label for="preferredGround">Preferred Ground</label>
+      <input
+        type="text"
+        name="preferredGround"
+        ng-model="vm.newPlayer.preferredGround"
+        class="form-control"
+        id="preferredGround"
+        aria-describedby="playerPreferredGround"
+        placeholder="Enter Preferred Ground"
+      />
+    </div>
+    <div class="form-group">
+      <label for="trophy">Trophy</label>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="trophyName">Name</span>
+        </div>
+        <input
+          id="trophy"
+          name="trophy.name"
+          type="text"
+          class="form-control"
+          placeholder="Enter name of the trohpy"
+          aria-describedby="trophyName"
+          ng-model="vm.newPlayer.trophy.name"
+        />
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="trophyWon">Won</span>
+        </div>
+        <input
+          id="trophy"
+          name="trophy.won"
+          type="number"
+          class="form-control"
+          placeholder="Enter number of trohpy winning"
+          aria-describedby="trophyWon"
+          ng-model="vm.newPlayer.trophy.won"
+        />
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="trophyLost">Lost</span>
+        </div>
+        <input
+          id="trophy"
+          name="trophy.lost"
+          type="number"
+          class="form-control"
+          placeholder="Enter number of trophy losing"
+          aria-describedby="trophyLost"
+          ng-model="vm.newPlayer.trophy.lost"
+        />
+      </div>
+    </div>
+
+    <button
+      ng-disabled="vm.playerForm.$invalid"
+      type="submit"
+      class="btn btn-primary"
+      style="margin-top: 30px"
+    >
+      Add player
+    </button>
+  </form>
+</div>
