@@ -25,12 +25,12 @@ function config($routeProvider, $httpProvider) {
         restricted: false,
       },
     })
-    .when("/:gameId/edit", {
+    .when("/games/:gameId/edit", {
       templateUrl: "angularjs-app/game-edit/gameEdit.html",
       controller: "GameEditController",
       controllerAs: "vm",
     })
-    .when("/:gameId/delete", {
+    .when("/games/:gameId/delete", {
       templateUrl: "angularjs-app/game-delete/gameDelete.html",
       controller: "GameDeleteController",
       controllerAs: "vm",

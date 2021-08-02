@@ -16,14 +16,14 @@ function GameDeleteController($routeParams, GamesFactory, $location) {
     GamesFactory.deleteGame(gameId)
       .then(function (deleted) {
         console.log("deleted Game from db", deleted);
-        $location.path("/");
+        $location.path("/games");
       })
       .catch(function (err) {
         console.log("server err updating: ", err);
-        $location.path("/");
+        $location.path("/games");
       });
   };
   vm.returnBack = function () {
-    $location.path("/");
+    $location.path("/games");
   };
 }

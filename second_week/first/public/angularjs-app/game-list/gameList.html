@@ -14,10 +14,12 @@
         padding-left: 10px;
       "
     >
-      <a ng-href="/#!/{{game._id}}">{{game.title}}</a>
+      <a ng-href="/#!/games/{{game._id}}">{{game.title}}</a>
       <div>
-        <a class="btn btn-info" ng-href="/#!/{{game._id}}/edit">Edit</a>
-        <a class="btn btn-danger" ng-href="/#!/{{game._id}}/delete">Delete</a>
+        <a class="btn btn-info" ng-href="/#!/games/{{game._id}}/edit">Edit</a>
+        <a class="btn btn-danger" ng-href="/#!/games/{{game._id}}/delete"
+          >Delete</a
+        >
       </div>
     </div>
   </li>

@@ -12,6 +12,6 @@ function GameController($routeParams, GamesFactory, $location) {
     vm.rating = _getStarsArray(game.rate);
   });
   vm.returnBack = function () {
-    $location.path("/");
+    $location.path("/games");
   };
 }

@@ -18,15 +18,15 @@ function GameEditController($routeParams, GamesFactory, $location) {
       GamesFactory.updateOneGame(gameId, vm.formUpdatedGame)
         .then(function () {
           console.log("updatedGame from db");
-          $location.path("/");
+          $location.path("/games");
         })
         .catch(function (err) {
           console.log("server err updating: ", err);
-          $location.path("/");
+          $location.path("/games");
         });
     }
   };
   vm.returnBack = function () {
-    $location.path("/");
+    $location.path("/games");
   };
 }
