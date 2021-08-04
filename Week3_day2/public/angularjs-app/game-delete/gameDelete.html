@@ -1,0 +1,23 @@
+<h1>
+  Information about : {{vm.game.title}}
+  <span ng-repeat="star in vm.rating track by $index">&#9733;</span>
+</h1>
+
+<p>
+  Price: {{vm.game.price | currency}} <br />
+  Year: {{vm.game.year}} <br />
+  Minimum Players: {{vm.game.minPlayers}} <br />
+  Maximum Players: {{vm.game.maxPlayers}} <br />
+  Minimum Age: {{vm.game.minAge}} <br />
+  Designer: {{vm.game.designers[0]}} <br />
+</p>
+
+<ul>
+  Are you Sure ?
+  <li>
+    <button class="btn btn-success" ng-click="vm.deleteGame()">Yes</button>
+  </li>
+  <li>
+    <button class="btn btn-secondary" ng-click="vm.returnBack()">No</button>
+  </li>
+</ul>

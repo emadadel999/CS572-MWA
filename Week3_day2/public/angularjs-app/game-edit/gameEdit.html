@@ -1,0 +1,153 @@
+<h1>Update {{vm.game.title}}:</h1>
+<div style="padding-left: 50px; padding-right: 50px">
+  <form name="vm.gameForm" ng-submit="vm.updateGame()">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        name="title"
+        class="form-control"
+        id="title"
+        aria-describedby="gameTitle"
+        placeholder="Enter title"
+        ng-value="vm.game.title"
+        ng-model="vm.formUpdatedGame.title"
+      />
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input
+        type="number"
+        name="price"
+        class="form-control"
+        id="price"
+        aria-describedby="gamePrice"
+        placeholder="Enter price"
+        ng-value="vm.game.price"
+        ng-model="vm.formUpdatedGame.price"
+      />
+    </div>
+    <div class="form-group">
+      <label for="year">Year</label>
+      <input
+        type="number"
+        name="year"
+        class="form-control"
+        id="year"
+        aria-describedby="gameYear"
+        placeholder="Enter year"
+        ng-value="vm.game.year"
+        ng-model="vm.formUpdatedGame.year"
+      />
+    </div>
+    <div class="form-group">
+      <label for="rate">rate</label>
+      <input
+        type="number"
+        name="rate"
+        class="form-control"
+        id="rate"
+        aria-describedby="gamerate"
+        placeholder="Enter rate from 1 to 5"
+        ng-value="vm.game.rate"
+        ng-model="vm.formUpdatedGame.rate"
+        pattern="[0-5]"
+      />
+      <span
+        style="color: red"
+        ng-show="vm.gameForm.rate.$dirty && vm.gameForm.rate.$invalid"
+      >
+        the rate must be a number between 1 and 5</span
+      >
+    </div>
+    <div class="form-group">
+      <label for="minPlayers">Min. No. of Players</label>
+      <input
+        type="number"
+        name="minPlayers"
+        class="form-control"
+        id="minPlayers"
+        aria-describedby="gameMinPlayers"
+        placeholder="Enter Min. No. of Players"
+        ng-value="vm.game.minPlayers"
+        ng-model="vm.formUpdatedGame.minPlayers"
+        pattern="[1-9][0-9]?"
+      />
+      <span
+        style="color: red"
+        ng-show="vm.gameForm.minPlayers.$dirty && vm.gameForm.minPlayers.$invalid"
+      >
+        players must be a number between 1-99</span
+      >
+    </div>
+    <div class="form-group">
+      <label for="maxPlayers">Max. No. of Players</label>
+      <input
+        type="number"
+        name="maxPlayers"
+        class="form-control"
+        id="maxPlayers"
+        aria-describedby="gameMaxPlayers"
+        placeholder="Enter Max. No. of Players"
+        ng-value="vm.game.maxPlayers"
+        ng-model="vm.formUpdatedGame.maxPlayers"
+        pattern="[1-9][0-9]?"
+      />
+      <span
+        style="color: red"
+        ng-show="vm.gameForm.maxPlayers.$dirty && vm.gameForm.maxPlayers.$invalid"
+      >
+        players must be a number between 1-99</span
+      >
+    </div>
+    <div class="form-group">
+      <label for="minAge">Min. Age</label>
+      <input
+        type="text"
+        name="minAge"
+        class="form-control"
+        id="minAge"
+        aria-describedby="gameMinAge"
+        placeholder="Enter Min. Age"
+        ng-value="vm.game.minAge"
+        ng-model="vm.formUpdatedGame.minAge"
+        pattern="[1-9][0-9]?"
+      />
+      <span
+        style="color: red"
+        ng-show="vm.gameForm.minAge.$dirty && vm.gameForm.minAge.$invalid"
+      >
+        players' age must be a number between 1-99</span
+      >
+    </div>
+    <div class="form-group">
+      <label for="designer">Designer Name</label>
+      <input
+        type="text"
+        name="designer"
+        class="form-control"
+        id="designer"
+        aria-describedby="gameDesigner"
+        placeholder="Enter name of the designer"
+        ng-value="vm.game.designers[0]"
+        ng-model="vm.formUpdatedGame.designer"
+      />
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      style="margin-top: 30px"
+      ng-disabled="vm.gameForm.$invalid || vm.gameForm.$pristine"
+    >
+      Update Game
+    </button>
+    <button
+      type="button"
+      class="btn btn-secondary"
+      style="margin-top: 30px"
+      ng-click="vm.returnBack()"
+    >
+      Cancel
+    </button>
+  </form>
+</div>

@@ -1,0 +1,166 @@
+<h1>Welcome to Mean Games</h1>
+
+<h4>Here is a list of games:</h4>
+<ul>
+  <li ng-repeat="game in vm.games">
+    <div
+      style="
+        display: flex;
+        justify-content: space-between;
+        border-color: #939597;
+        border-width: thin;
+        border-style: solid;
+        margin-right: 50px;
+        padding-left: 10px;
+      "
+    >
+      <a ng-href="/#!/games/{{game._id}}">{{game.title}}</a>
+      <div>
+        <a class="btn btn-info" ng-href="/#!/games/{{game._id}}/edit">Edit</a>
+        <a class="btn btn-danger" ng-href="/#!/games/{{game._id}}/delete"
+          >Delete</a
+        >
+      </div>
+    </div>
+  </li>
+</ul>
+
+<h4>Add a new game:</h4>
+<div style="padding: 0px 50px 50px 50px">
+  <form name="vm.gameForm" ng-submit="vm.addGame()">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        name="title"
+        ng-model="vm.newGame.title"
+        class="form-control"
+        id="title"
+        aria-describedby="gameTitle"
+        placeholder="Enter title"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input
+        type="number"
+        name="price"
+        ng-model="vm.newGame.price"
+        class="form-control"
+        id="price"
+        aria-describedby="gamePrice"
+        placeholder="Enter price"
+      />
+    </div>
+    <div class="form-group">
+      <label for="year">Year</label>
+      <input
+        type="number"
+        name="year"
+        ng-model="vm.newGame.year"
+        class="form-control"
+        id="year"
+        aria-describedby="gameYear"
+        placeholder="Enter year"
+      />
+    </div>
+    <div class="form-group">
+      <label for="rate">Rate</label>
+      <input
+        type="number"
+        name="rate"
+        ng-model="vm.newGame.rate"
+        class="form-control"
+        id="rate"
+        aria-describedby="gameRate"
+        placeholder="Enter rate from 1 to 5"
+        pattern="[1-5]"
+      />
+      <span
+        style="color: red"
+        ng-show="vm.gameForm.rate.$dirty && vm.gameForm.rate.$invalid"
+      >
+        the rate must be a number between 1 and 5</span
+      >
+    </div>
+    <div class="form-group">
+      <label for="minPlayers">Min. No. of Players</label>
+      <input
+        type="number"
+        name="minPlayers"
+        ng-model="vm.newGame.minPlayers"
+        class="form-control"
+        id="minPlayers"
+        aria-describedby="gameMinPlayers"
+        placeholder="Enter Min. No. of Players"
+        pattern="[1-9][0-9]?"
+      />
+      <span
+        style="color: red"
+        ng-show="vm.gameForm.minPlayers.$dirty && vm.gameForm.minPlayers.$invalid"
+      >
+        players must be a number between 1-99</span
+      >
+    </div>
+    <div class="form-group">
+      <label for="maxPlayers">Max. No. of Players</label>
+      <input
+        type="number"
+        name="maxPlayers"
+        ng-model="vm.newGame.maxPlayers"
+        class="form-control"
+        id="maxPlayers"
+        aria-describedby="gameMaxPlayers"
+        placeholder="Enter Max. No. of Players"
+        pattern="[1-9][0-9]?"
+      />
+      <span
+        style="color: red"
+        ng-show="vm.gameForm.maxPlayers.$dirty && vm.gameForm.maxPlayers.$invalid"
+      >
+        players must be a number between 1-99</span
+      >
+    </div>
+    <div class="form-group">
+      <label for="minAge">Min. Age</label>
+      <input
+        type="number"
+        name="minAge"
+        ng-model="vm.newGame.minAge"
+        class="form-control"
+        id="minAge"
+        aria-describedby="gameMinAge"
+        placeholder="Enter Min. Age"
+        pattern="[1-9][0-9]?"
+      />
+      <span
+        class="danger"
+        style="color: red"
+        ng-show="vm.gameForm.minAge.$dirty && vm.gameForm.minAge.$invalid"
+      >
+        players' age must be a number between 1-99</span
+      >
+    </div>
+    <div class="form-group">
+      <label for="designer">Designer Name</label>
+      <input
+        type="text"
+        name="designer"
+        ng-model="vm.newGame.designer"
+        class="form-control"
+        id="designer"
+        aria-describedby="gameDesigner"
+        placeholder="Enter name of the designer"
+      />
+    </div>
+    <button
+      ng-disabled="vm.gameForm.$invalid"
+      type="submit"
+      class="btn btn-primary"
+      style="margin-top: 30px"
+    >
+      Add Game
+    </button>
+  </form>
+</div>
